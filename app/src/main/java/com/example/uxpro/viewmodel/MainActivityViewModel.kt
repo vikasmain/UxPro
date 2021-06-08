@@ -14,7 +14,7 @@ class MainActivityViewModel @Inject constructor(
     private val apiRepository: ApiRepository
 ) : ViewModel() {
 
-    private val liveData = MutableLiveData<UxItemsResponse>()
+    val liveData = MutableLiveData<UxItemsResponse>()
     private var uxItemsJob: Job? = null
     fun getUsers() {
         uxItemsJob?.cancel()
