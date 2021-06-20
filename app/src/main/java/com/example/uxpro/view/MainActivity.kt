@@ -2,29 +2,26 @@ package com.example.uxpro.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.example.uxpro.R
+import android.view.View
+import com.example.uxpro.databinding.ActivityMainBinding
+import com.example.uxpro.view.adapter.UxItemsAdapter
 import com.example.uxpro.viewmodel.MainActivityViewModel
-import javax.inject.Inject
+import com.example.uxpro.viewmodel.Status
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
 
-    @Inject
-    lateinit var viewModel: MainActivityViewModel
-
-
+    private val mainActivityViewModel by viewModel<MainActivityViewModel>()
+    private lateinit var binding: ActivityMainBinding
+    private val uxItemsAdapter = UxItemsAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
+        binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setViewModel()
-        observeViewModel()
     }
 
     override fun onResume() {
         super.onResume()
-
+        observeViewModel()
     }
 
     override fun onStop() {
@@ -35,13 +32,20 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
     }
 
-    private fun setViewModel() {
-        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-    }
-
     private fun observeViewModel() {
-        viewModel.liveData.observe(this, Observer {
-            Log.d("Data", "" + it)
+        mainActivityViewModel.data.observe(this, {
+            when (it?.status) {
+                Status.ERROR -> {
+                    binding.progressBar.visibility = View.GONE
+                }
+                Status.SUCCESS -> {
+                    binding.progressBar.visibility = View.GONE
+                    binding.recyclerView.visibility = View.VISIBLE
+                    it.data?.value?.let {
+                        uxItemsAdapter.updateUxItemsList(it)
+                    }
+                }
+            }
         })
     }
 }

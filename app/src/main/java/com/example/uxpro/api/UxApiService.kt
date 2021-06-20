@@ -5,6 +5,6 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 interface UxApiService {
-    @GET("uxitems")
-    suspend fun getUxItems(): Response<UxItemsResponse>
+    @GET("uxitemslist")
+    suspend fun getUxItems(): UxResponse
 }

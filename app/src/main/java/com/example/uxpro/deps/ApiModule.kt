@@ -1,6 +1,7 @@
-package com.example.uxpro
+package com.example.uxpro.deps
 
 import com.example.uxpro.api.UxApiService
+import com.example.uxpro.repo.ApiRepository
 import dagger.Provides
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -23,7 +24,7 @@ class ApiModule {
     fun providesRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("")
+            .baseUrl("https://gymapi456.herokuapp.com/")
             .client(okHttpClient).build()
     }
 
@@ -32,4 +33,9 @@ class ApiModule {
     fun providesApiService(retrofit: Retrofit) =
         retrofit.create(UxApiService::class.java)
 
+    @Provides
+    @Singleton
+    fun providesApiRepository(uxApiService: UxApiService): ApiRepository {
+        return ApiRepository(uxApiService)
+    }
 }
