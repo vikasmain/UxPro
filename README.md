@@ -3,7 +3,7 @@
 
 https://user-images.githubusercontent.com/20916492/123371913-3c6a1180-d5a0-11eb-8582-d761a352a4ac.mp4
 
-<img src="![Screenshot_20210625-103033](https://user-images.githubusercontent.com/20916492/123372033-74715480-d5a0-11eb-9f77-7f9195c9e44f.jpg)" width="200" height="200">
+<img src="https://user-images.githubusercontent.com/20916492/123372033-74715480-d5a0-11eb-9f77-7f9195c9e44f.jpg" width="200" height="200">
 
 
 ## It shows list of all ux components in android in recycler view and shows what are the various types of ux components are available in android.
