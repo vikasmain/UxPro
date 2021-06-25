@@ -8,6 +8,8 @@ https://user-images.githubusercontent.com/20916492/123371913-3c6a1180-d5a0-11eb-
 
 ## It shows list of all ux components in android in recycler view and shows what are the various types of ux components are available in android.
 
+### Api code is here(created in flask-python and deployed on heroku) - https://github.com/vikasmain/FlaskCrud
+
 ## Architectural Pattern
 it represents the abstraction part of app.
 
