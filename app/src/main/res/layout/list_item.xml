@@ -4,78 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp">
+    android:layout_marginTop="20dp">
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="10dp"
+        android:background="@drawable/rounded_background_grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <View
+            android:id="@+id/gradientBackground"
+            android:layout_width="4dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/gradient_background" />
 
-            <View
-                android:id="@+id/gradientBackground"
-                android:layout_width="4dp"
-                android:layout_height="36dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/gradient_background" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_toEndOf="@+id/gradientBackground"
+            android:layout_toRightOf="@+id/gradientBackground"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="Title" />
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_toEndOf="@+id/gradientBackground"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                tools:text="Title" />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/gradientBackground"
+            android:layout_toRightOf="@+id/gradientBackground"
+            tools:text="Subtitle" />
 
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toEndOf="@+id/gradientBackground"
-                tools:text="Subtitle" />
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toEndOf="@+id/gradientBackground"
+            android:layout_toRightOf="@+id/gradientBackground"
+            android:background="@drawable/rounded_background"
+            android:padding="8dp"
+            android:textColor="@android:color/white"
+            tools:text="Description" />
 
-            <TextView
-                android:id="@+id/subtitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/description"
-                android:layout_marginStart="12dp"
-                android:layout_marginLeft="12dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toEndOf="@+id/gradientBackground"
-                android:background="@drawable/rounded_background"
-                android:padding="8dp"
-                android:textColor="@android:color/white"
-                tools:text="Description" />
-
-
-            <ImageView
-                android:layout_width="28dp"
-                android:layout_height="28dp"
-                android:layout_alignParentEnd="true"
-                android:layout_centerInParent="true"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/right_arrow" />
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:src="@drawable/right_arrow" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
